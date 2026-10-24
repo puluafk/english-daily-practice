@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>English Daily Practice – Learn & Improve Every Day</title>
+  <meta name="description" content="Practice English daily with interactive exercises across Beginner, Intermediate and Advanced levels." />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div id="app">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <span class="logo-icon">🇬🇧</span>
+        <span class="logo-text">English Daily</span>
+      </div>
+      <div class="header-stats">
+        <div class="stat streak" title="Daily streak">
+          <span>🔥</span>
+          <span id="streak-count">0</span>
+        </div>
+        <div class="stat xp" title="Total XP">
+          <span>⭐</span>
+          <span id="xp-count">0</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Screens -->
+    <main>
+      <!-- HOME SCREEN -->
+      <section id="screen-home" class="screen active">
+        <div class="hero">
+          <h1>Practice English <span class="gradient-text">Every Day</span></h1>
+          <p class="subtitle">Choose your level and start learning with fun interactive exercises</p>
+        </div>
+
+        <div class="level-grid">
+          <button class="level-card beginner" data-level="beginner">
+            <div class="level-badge">A1 – A2</div>
+            <h2>Beginner</h2>
+            <p>Basic vocabulary, simple sentences & everyday phrases</p>
+            <div class="level-progress">
+              <div class="progress-bar"><div class="fill" id="progress-beginner" style="width:0%"></div></div>
+              <span class="progress-text" id="progress-text-beginner">0%</span>
+            </div>
+          </button>
+
+          <button class="level-card intermediate" data-level="intermediate">
+            <div class="level-badge">B1 – B2</div>
+            <h2>Intermediate</h2>
+            <p>Grammar, longer texts, conversations & useful expressions</p>
+            <div class="level-progress">
+              <div class="progress-bar"><div class="fill" id="progress-intermediate" style="width:0%"></div></div>
+              <span class="progress-text" id="progress-text-intermediate">0%</span>
+            </div>
+          </button>
+
+          <button class="level-card advanced" data-level="advanced">
+            <div class="level-badge">C1 – C2</div>
+            <h2>Advanced</h2>
+            <p>Complex grammar, idioms, nuanced reading & writing</p>
+            <div class="level-progress">
+              <div class="progress-bar"><div class="fill" id="progress-advanced" style="width:0%"></div></div>
+              <span class="progress-text" id="progress-text-advanced">0%</span>
+            </div>
+          </button>
+        </div>
+
+        <div class="daily-challenge-card" id="daily-card">
+          <div class="daily-badge">🔥 Daily Challenge</div>
+          <h3 id="daily-title">Complete today’s challenge</h3>
+          <p id="daily-desc">A short mixed exercise to keep your streak alive</p>
+          <button class="btn btn-primary" id="btn-daily">Start Daily Challenge</button>
+        </div>
+      </section>
+
+      <!-- LEVEL MENU SCREEN -->
+      <section id="screen-level" class="screen">
+        <button class="back-btn" id="btn-back-home">← Back</button>
+        <h1 class="screen-title" id="level-title">Beginner</h1>
+        <p class="screen-subtitle" id="level-subtitle">Choose an exercise type</p>
+
+        <div class="exercise-types">
+          <button class="type-card" data-type="vocabulary">
+            <span class="type-icon">📚</span>
+            <h3>Vocabulary</h3>
+            <p>Learn new words & meanings</p>
+          </button>
+          <button class="type-card" data-type="grammar">
+            <span class="type-icon">✍️</span>
+            <h3>Grammar</h3>
+            <p>Practice structures & rules</p>
+          </button>
+          <button class="type-card" data-type="reading">
+            <span class="type-icon">📖</span>
+            <h3>Reading</h3>
+            <p>Short texts + comprehension</p>
+          </button>
+          <button class="type-card" data-type="quiz">
+            <span class="type-icon">🎯</span>
+            <h3>Mixed Quiz</h3>
+            <p>Test everything together</p>
+          </button>
+        </div>
+      </section>
+
+      <!-- EXERCISE SCREEN -->
+      <section id="screen-exercise" class="screen">
+        <div class="exercise-header">
+          <button class="back-btn" id="btn-back-level">← Back</button>
+          <div class="exercise-meta">
+            <span id="exercise-type-label">Vocabulary</span>
+            <span id="question-counter">1 / 8</span>
+          </div>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-track-fill" id="exercise-progress"></div>
+        </div>
+
+        <div class="exercise-body" id="exercise-body">
+          <!-- Dynamic content injected by JS -->
+        </div>
+
+        <div class="exercise-footer" id="exercise-footer">
+          <button class="btn btn-primary" id="btn-check" disabled>Check Answer</button>
+          <button class="btn btn-secondary hidden" id="btn-next">Next Question →</button>
+        </div>
+      </section>
+
+      <!-- RESULT SCREEN -->
+      <section id="screen-result" class="screen">
+        <div class="result-card">
+          <div class="result-emoji" id="result-emoji">🎉</div>
+          <h1 id="result-title">Great job!</h1>
+          <p id="result-score">You scored 7 / 8</p>
+          <div class="result-xp">
+            <span>+ <span id="result-xp-value">70</span> XP</span>
+          </div>
+          <div class="result-actions">
+            <button class="btn btn-primary" id="btn-again">Practice Again</button>
+            <button class="btn btn-secondary" id="btn-home">Back to Home</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Practice a little every day. Consistency beats intensity.</p>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
