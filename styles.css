@@ -566,6 +566,14 @@ body {
   font-size: 0.85rem;
 }
 
+.footer .created-by {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #c4b5fd;
+  letter-spacing: 0.02em;
+}
+
 /* Responsive */
 @media (max-width: 560px) {
   .exercise-body {
